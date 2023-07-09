@@ -43,7 +43,7 @@ def process_date(df, column, today):
 
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def create_woe(column_name, X, y):
+def create_woe_discrete(column_name, X, y):
     # Get variable of interest
     df1 = pd.DataFrame(X[column_name])
     # Add target variable
