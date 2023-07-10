@@ -85,9 +85,13 @@ def create_woe_discrete(column_name, X, y):
 
 # /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def plot_weight_of_evidence(df): 
+def plot_weight_of_evidence(df, width=12, height=8): 
     column = df.columns[0]
-    df.plot.scatter(x=column, y='weight_of_evidence', c = 'DarkBlue')
+    # Set the figure size
+    fig, ax = plt.subplots(figsize=(width, height))
+
+    # Plot the scatter plot with adjusted width
+    df.plot.scatter(x=column, y='weight_of_evidence', c='DarkBlue', ax=ax)
     # Line connecting the points
     plt.plot(df[column], df['weight_of_evidence'], color='blue')
     plt.title('Weight of Evidence {}'.format(column))
