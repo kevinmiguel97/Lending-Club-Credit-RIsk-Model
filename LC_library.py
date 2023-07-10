@@ -89,7 +89,7 @@ def plot_weight_of_evidence(df):
     column = df.columns[0]
     df.plot.scatter(x=column, y='weight_of_evidence', c = 'DarkBlue')
     # Line connecting the points
-    plt.plot(df['grade'], df['weight_of_evidence'], color='blue')
+    plt.plot(df[column], df['weight_of_evidence'], color='blue')
     plt.title('Weight of Evidence {}'.format(column))
     # Display the plot
     plt.show()
