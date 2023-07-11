@@ -55,6 +55,9 @@ def create_woe_discrete(column_name, X, y):
     # Rename columns
     df1.columns = ['observations', 'good_count']
 
+    # Total pct
+    df1['pct_total'] = df1['observations'] / df1['observations'].sum()
+
     # Get pct of good
     df1['good_prop'] = df1['good_count'] / df1['good_count'].sum()
 
@@ -64,7 +67,7 @@ def create_woe_discrete(column_name, X, y):
     df1['bad_prop'] = df1['bad_count'] / df1['bad_count'].sum()
 
     # Rearange columns
-    df1 = df1[['observations', 'good_count', 'bad_count', 'good_prop', 'bad_prop']]
+    df1 = df1[['observations', 'pct_total', 'good_count', 'bad_count', 'good_prop', 'bad_prop']]
 
     # Calculate WoE
     df1['weight_of_evidence'] = np.log(df1['good_prop'] / df1['bad_prop'])  
