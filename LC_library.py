@@ -98,5 +98,6 @@ def plot_weight_of_evidence(df, width=12, height=8):
     # Line connecting the points
     plt.plot(df[column], df['weight_of_evidence'], color='blue')
     plt.title('Weight of Evidence {}'.format(column))
+    plt.xticks(rotation=45)
     # Display the plot
     plt.show()
